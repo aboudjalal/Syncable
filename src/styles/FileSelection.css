@@ -1,0 +1,56 @@
+/* Drop Circle */
+.landing-drop-circle {
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 2;
+    font-weight: normal;
+    color: #354859;
+    text-align: center;
+    border: 5px dashed transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  .landing-drop-circle.drag-active {
+    border-color: #354859;
+  }
+  
+  /* Select File Label Styled as Button */
+  .select-file {
+    display: inline-block;
+    padding: 10px 70px;
+    background-color: #354859;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .select-file:hover {
+    background-color: #2d3e49;
+    transform: scale(1.05);
+  }
+  
+  .select-file:active {
+    transform: scale(0.95);
+  }
+  
+  /* Styling for the (pdf) text */
+  .pdf-text {
+    margin: 0;
+    font-size: 22px;
+    position: relative;
+    top: -25px;
+    color: #354859;
+    text-align: center;
+  }
+  

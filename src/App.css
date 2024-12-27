@@ -1,0 +1,34 @@
+/* App Container */
+.app {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  /* Welcome Page Container */
+  .welcome-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s ease-in-out;
+    z-index: 2; /* Stacks above the landing page */
+  }
+  
+  .welcome-container.slide-up {
+    transform: translateY(-100%); /* Slides the welcome page out of view */
+  }
+  
+  /* Landing Page */
+  .landing-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1; /* Stays behind the welcome page */
+    background-color: #354859; /* Matches the desired background color */
+  }
+  

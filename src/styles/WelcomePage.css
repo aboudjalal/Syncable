@@ -1,0 +1,93 @@
+/* General Styling */
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #354859; /* Adjust background color */
+  overflow: hidden;
+  position: relative;
+  transition: transform 1s ease-in-out;
+}
+
+.welcome-page.slide-up {
+  transform: translateY(-100vh); /* Slide the page up */
+}
+
+/* Content Layout */
+.content {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Animation */
+.logo img {
+  width: 150px; /* Adjust logo size */
+  height: auto;
+  margin-bottom: 70px;
+  margin-right: 20px;
+  opacity: 0; /* Hidden at the start */
+  transform: translateY(-100px); /* Start above the viewport */
+  animation: fall-in 1s ease-out forwards;
+  animation-delay: 0.5s; /* Start after a brief delay */
+}
+
+/* Typing Animation */
+.typing {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  font-family: 'helvetica', sans-serif;
+  font-weight: lighter;
+  color: white;
+  opacity: 0; /* Hidden until the logo animation finishes */
+  animation: fade-in 0.5s ease-out forwards;
+  animation-delay: 1.5s; /* Delay to start after logo animation */
+}
+
+.typing span.typing-text {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 1s steps(8) forwards, blink 0.5s step-end infinite alternate;
+  animation-delay: 2s; /* Delay typing until text fades in */
+}
+
+/* Keyframes */
+@keyframes fall-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100px); /* Above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 7ch; /* Matches "yncable" */
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: white;
+  }
+}

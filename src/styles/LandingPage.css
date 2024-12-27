@@ -1,0 +1,140 @@
+/* Landing Page */
+.landing-page {
+  background-color: #354859;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.landing-welcome-text {
+  font-size: 2.5rem; /* Slightly larger font for welcome text */
+  color: white;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.landing-inline-logo {
+  width: 40px; /* Adjusted logo size for better visibility */
+  height: auto;
+  vertical-align: middle;
+  margin-left: 5px; /* Add spacing between text and logo */
+}
+
+/* Popups */
+.landing-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 450px;
+  background-color: #2C2C2C;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.landing-popup.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.landing-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-align: center;
+}
+
+.popup-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.popup-list, .popup-steps {
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.popup-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #354859;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.popup-button:hover {
+  background-color: #2d3e49;
+  transform: scale(1.1);
+}
+
+.popup-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.active {
+  background-color: #354859;
+  transform: scale(1.2);
+}
+
+/* Question Mark Button */
+.landing-question-mark {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #2C2C2C;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.landing-question-mark:hover {
+  background-color: #354859;
+  color: white;
+  transform: scale(1.1);
+}
