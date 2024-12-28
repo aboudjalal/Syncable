@@ -5,8 +5,9 @@ import FileSelection from "./FileSelection";
 import "../styles/LandingPage.css";
 
 function LandingPage() {
-  const CLIENT_ID = "504368072713-rl5nu1vab8f4q56rhobaidqsao33bjsj.apps.googleusercontent.com";
-  const SCOPES = "https://www.googleapis.com/auth/calendar.events openid email profile";
+  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+  const SCOPES = process.env.REACT_APP_SCOPES;
+  
 
   const [dragActive, setDragActive] = useState(false);
   const [uploadedFile, setUploadedFile] = useState(null);
