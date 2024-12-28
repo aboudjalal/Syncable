@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Syncable
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Syncable** is a smart timetable app designed to simplify scheduling for students. With features like Google Calendar integration and advanced timetable parsing, Syncable helps students upload their schedules and automatically sync them with their preferred calendar apps, ensuring they never miss a class.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Google Calendar Integration**: Automatically sync your class schedule with Google Calendar.
+- **Timetable Upload**: Upload or drag-and-drop an image of your timetable to extract schedule details.
+- **User-Friendly Interface**: Preview, edit, and confirm schedule details before syncing.
+- **Cross-Platform Support**: Future plans include integration with Apple Calendar and Notion.
+- **Custom Event Management**: Add, edit, or delete events directly within the app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How It Works
 
-### `npm test`
+1. **Sign In with Google**: Securely log in using your Google account.
+2. **Upload Your Timetable**: Drag and drop an image or select a file from your device.
+3. **Extract and Edit**: Syncable uses advanced algorithms to extract class schedules from your timetable image.
+4. **Sync**: Confirm the details and sync them to your Google Calendar with a single click.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js**: [Download and install Node.js](https://nodejs.org/)
+- **MongoDB**: Ensure you have a MongoDB database set up.
+- **Google Developer Console**: Create credentials for Google Calendar API integration.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aboudjalal/Syncable.git
+   cd Syncable
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Set up environment variables:
+   Create a `.env` file in the root directory with the following keys:
+   ```env
+   GOOGLE_CLIENT_ID=<your-google-client-id>
+   GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+   MONGODB_URI=<your-mongodb-uri>
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the app:
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Frontend**: React.js
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB
+- **Calendar Integration**: Google Calendar API
+- **Authentication**: OAuth 2.0 (Google Sign-In)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Now
+- Google Calendar API integration
+- Timetable upload and parsing
+- Google Sign-In authentication
 
-### Analyzing the Bundle Size
+### Next
+- Integration with Apple Calendar and Notion
+- User-defined themes and customization options
+- Improved timetable parsing accuracy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Later
+- Advanced event conflict detection
+- AI-based schedule optimization
+- Mobile app development
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+Contributions are welcome! To contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Commit your changes (`git commit -m "Add new feature"`).
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Open a pull request.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Contact
+
+For questions or feedback, feel free to reach out:
+
+- **Author**: Aboud Jalal
+- **Email**: aboudjalal1@gmail.com
