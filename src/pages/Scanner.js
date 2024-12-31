@@ -9,7 +9,7 @@ const Scanner = ({ file, setExtractedText, setParsedTimetable, setIsProcessing }
     const timetable = [];
     const rows = rawText.split("\n");
     const timePattern = /\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}/;
-    const coursePattern = /[A-Z]{2,}\s\d{4}\.\d*/;
+    const coursePattern = /[A-Z]{2,}\s\d{4}(\.\d*)?/;
 
     rows.forEach((row) => {
       const timeMatch = row.match(timePattern);
@@ -27,24 +27,23 @@ const Scanner = ({ file, setExtractedText, setParsedTimetable, setIsProcessing }
     return timetable;
   };
 
-  const processImage = () => {
+  const processImage = async () => {
     setIsProcessing(true);
 
-    Tesseract.recognize(file, "eng")
-      .then(({ data: { text } }) => {
-        setExtractedText(text);
-        const structuredData = parseTimetable(text);
-        setParsedTimetable(structuredData);
-        setPopupText(text); // Set text for the popup
-        setIsProcessing(false);
-      })
-      .catch((error) => {
-        console.error("Error reading image:", error);
-        setExtractedText("Failed to extract text from the image.");
-        setParsedTimetable([]);
-        setPopupText("Failed to extract text from the image."); // Set error text for the popup
-        setIsProcessing(false);
-      });
+    try {
+      const { data: { text } } = await Tesseract.recognize(file, "eng");
+      setExtractedText(text);
+      const structuredData = parseTimetable(text);
+      setParsedTimetable(structuredData);
+      setPopupText(text); // Set text for the popup
+    } catch (error) {
+      console.error("Error reading image:", error);
+      setExtractedText("Failed to extract text from the image.");
+      setParsedTimetable([]);
+      setPopupText("Failed to extract text from the image."); // Set error text for the popup
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   useEffect(() => {
@@ -69,7 +68,6 @@ const Scanner = ({ file, setExtractedText, setParsedTimetable, setIsProcessing }
       )}
     </div>
   );
-  
 };
 
 export default Scanner;
