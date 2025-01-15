@@ -1,14 +1,12 @@
 import React, { useState } from "react";
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 import SignIn from "./SignIn";
 import Scanner from "./Scanner";
 import FileSelection from "./FileSelection";
 import "../styles/LandingPage.css";
 
 function LandingPage() {
-  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-  const SCOPES = process.env.REACT_APP_SCOPES;
-  
-
   const [dragActive, setDragActive] = useState(false);
   const [uploadedFile, setUploadedFile] = useState(null);
   const [extractedText, setExtractedText] = useState("");
@@ -27,15 +25,46 @@ function LandingPage() {
     setPopupSlide((prev) => prev + 1);
   };
 
+  const handleLogout = () => {
+    googleLogout();
+    setUser(null);
+  };
+
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
+  const responseError = error => {
+    console.log(error);
+  }
+
+
   return (
     <div className="landing-page">
       {/* Google Sign-In */}
-      {!user && <SignIn CLIENT_ID={CLIENT_ID} SCOPES={SCOPES} setUser={setUser} />}
+      {!user && (
+  <div className="google-signin-button">
+    <GoogleLogin
+    clientId="504368072713-nk756200d5di97f74ditmi9ejdmimv5i.apps.googleusercontent.com"
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+  resposeType="code"
+  accessType="offline"
+  scope='openid email profile https://www.googleapis.com/auth/calendar'
+    />
+  </div>
+)}
+
 
       {user && (
         <div className="user-info">
+          <img src={user.picture} alt={user.name} className="user-picture" />
           <p>Welcome, {user.name}</p>
-          <button onClick={() => setUser(null)}>Sign Out</button>
+          <button onClick={handleLogout}>Sign Out</button>
         </div>
       )}
 
