@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/FileSelection.css";
 
+const FileSelection = ({ setUploadedFile }) => {
+  const [dragActive, setDragActive] = useState(false);
 
-const FileSelection = ({ setUploadedFile, setDragActive }) => {
   const handleDragOver = (e) => {
     e.preventDefault();
     setDragActive(true);
@@ -30,12 +31,13 @@ const FileSelection = ({ setUploadedFile, setDragActive }) => {
 
   return (
     <div
-      className="landing-drop-circle"
+      className={`landing-drop-circle ${dragActive ? "drag-active" : ""}`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
-      <div>
+      {dragActive && <div className="drag-overlay">Drop files here</div>}
+      <div className="content">
         <p>Drop Timetable Here.</p>
         <p className="pdf-text">(pdf, jpeg, or png)</p>
         <p>or</p>

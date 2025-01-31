@@ -14,15 +14,48 @@
     color: #354859;
     text-align: center;
     border: 5px dashed transparent;
+    position: relative;
     transition: border-color 0.3s ease;
-  }
-  
-  .landing-drop-circle.drag-active {
+}
+
+.landing-drop-circle.drag-active {
     border-color: #354859;
-  }
-  
-  /* Select File Label Styled as Button */
-  .select-file {
+}
+
+/* Ensure the content stays in a column layout */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure drag overlay does not affect text layout */
+.drag-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(53, 72, 89, 0.7);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column; /* Ensure text stacks properly */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+
+/* Hide the content when dragging */
+.landing-drop-circle.drag-active .content {
+    opacity: 0.5;
+}
+
+/* Select File Label Styled as Button */
+.select-file {
     display: inline-block;
     padding: 10px 70px;
     background-color: #354859;
@@ -33,24 +66,23 @@
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .select-file:hover {
+}
+
+.select-file:hover {
     background-color: #2d3e49;
     transform: scale(1.05);
-  }
-  
-  .select-file:active {
+}
+
+.select-file:active {
     transform: scale(0.95);
-  }
-  
-  /* Styling for the (pdf) text */
-  .pdf-text {
+}
+
+/* Styling for the (pdf) text */
+.pdf-text {
     margin: 0;
     font-size: 22px;
     position: relative;
     top: -25px;
     color: #354859;
     text-align: center;
-  }
-  
+}
