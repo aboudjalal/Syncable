@@ -6,6 +6,9 @@ import Scanner from "./Scanner";
 import FileSelection from "./FileSelection";
 import "../styles/LandingPage.css";
 
+// THIS PAGE IS THE LANDING PAGE AND MAIN UI
+
+
 function LandingPage() {
   const [dragActive, setDragActive] = useState(false);
   const [uploadedFile, setUploadedFile] = useState(null);

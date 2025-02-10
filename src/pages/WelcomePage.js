@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "../styles/WelcomePage.css";
 
+// THIS PAGE IS THE LOADING PAGE
+
 function WelcomePage({ onAnimationComplete }) {
   const [slideUp, setSlideUp] = useState(false);
 
   useEffect(() => {
-    // Trigger slide-up animation and notify parent after animation ends
     const timer = setTimeout(() => {
-      setSlideUp(true); // Start slide-up animation
+      setSlideUp(true);
       setTimeout(() => {
-        onAnimationComplete(); // Notify parent to render landing page
-      }, 1000); // Match the duration of the slide-up animation
-    }, 4500); // Wait for typing animation to finish
+        onAnimationComplete();
+      }, 1000);
+    }, 4500);
 
-    return () => clearTimeout(timer); // Cleanup timeout
+    return () => clearTimeout(timer);
   }, [onAnimationComplete]);
 
   return (
     <div className={`welcome-page ${slideUp ? "slide-up" : ""}`}>
       <div className="content">
-        <div className="logo">
-          <img src="/images/Syncable.png" alt="Logo" />
-        </div>
-        <div className="typing">
-          {/* <span>y</span> */}
-          <span className="typing-text">yncable </span>
+        {/* Wrap logo and text in a flex container */}
+        <div className="logo-text-container">
+          <div className="logo">
+            <img src="/images/Syncable.png" alt="Logo" />
+          </div>
+          <div className="typing">
+            <span className="letter"></span>
+            <span className="typing-text">yncable</span>
+          </div>
         </div>
       </div>
     </div>

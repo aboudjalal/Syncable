@@ -4,14 +4,14 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #354859; /* Adjust background color */
+  background-color: #354859;
   overflow: hidden;
   position: relative;
   transition: transform 1s ease-in-out;
 }
 
 .welcome-page.slide-up {
-  transform: translateY(-100vh); /* Slide the page up */
+  transform: translateY(-100vh);
 }
 
 /* Content Layout */
@@ -20,48 +20,62 @@
   align-items: center;
 }
 
-/* Logo Animation */
-.logo img {
-  width: 150px; /* Adjust logo size */
-  height: auto;
-  margin-bottom: 70px;
-  margin-right: 20px;
-  opacity: 0; /* Hidden at the start */
-  transform: translateY(-100px); /* Start above the viewport */
-  animation: fall-in 1s ease-out forwards;
-  animation-delay: 0.5s; /* Start after a brief delay */
+/* New Flex Container for Logo and Text */
+.logo-text-container {
+  display: flex;
+  align-items: center; /* Ensures logo and text stay on the same line */
+  gap: 10px; /* Adjust spacing between logo and text */
 }
 
-/* Typing Animation */
+/* Logo */
+.logo img {
+  width: 150px;
+  height: auto;
+  opacity: 0;
+  transform: translateY(-100px);
+  animation: fall-in 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Typing Text */
 .typing {
   display: flex;
-  align-items: center;
+  align-items: baseline; /* Align text with bottom of logo */
   font-size: 4rem;
   font-family: 'helvetica', sans-serif;
   font-weight: lighter;
   color: white;
-  opacity: 0; /* Hidden until the logo animation finishes */
+  opacity: 0;
   animation: fade-in 0.5s ease-out forwards;
-  animation-delay: 1.5s; /* Delay to start after logo animation */
+  animation-delay: 1.5s;
 }
 
+/* "y" should always be visible and stay next to the logo */
+.typing span.letter {
+  font-size: 4rem;
+  font-weight: lighter;
+  color: white;
+  opacity: 1;
+}
+
+/* Typing animation for "yncable" */
 .typing span.typing-text {
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 1s steps(8) forwards, blink 0.5s step-end infinite alternate;
-  animation-delay: 2s; /* Delay typing until text fades in */
+  animation: typing 1s steps(7) forwards, blink 0.5s step-end infinite alternate;
+  animation-delay: 2s;
 }
 
 /* Keyframes */
 @keyframes fall-in {
   from {
     opacity: 0;
-    transform: translateY(-100px); /* Above */
+    transform: translateY(-100px);
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* Final position */
+    transform: translateY(0);
   }
 }
 
@@ -79,7 +93,7 @@
     width: 0;
   }
   to {
-    width: 7ch; /* Matches "yncable" */
+    width: 7ch;
   }
 }
 

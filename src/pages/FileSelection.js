@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/FileSelection.css";
 
+// THIS COMPONENT HANDLES THE FILE SELECTION AND DRAG AND DROP
+
 const FileSelection = ({ setUploadedFile }) => {
   const [dragActive, setDragActive] = useState(false);
 

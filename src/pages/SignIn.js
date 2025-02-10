@@ -3,6 +3,8 @@ import { gapi } from "gapi-script";
 import "../styles/SignIn.css";
 
 
+// THIS PAGE HANDLES THE GOOGLE SIGN-IN
+
 const SignIn = ({ CLIENT_ID, SCOPES, setUser }) => {
   useEffect(() => {
     const initializeGoogleButton = () => {
